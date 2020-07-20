@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Registration Confirmation</title>
+	  <link rel="stylesheet" href="styles/login.css" type="text/css">
+	  <style>
+	  html{
+  height: 100%;
+}
+body {
+  margin:0, auto;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#243b55,#3f96cd);
+}
+h2{colo:white;}
+a{text-decoration:none; color:white;}
+	  </style>
+</head>
+
+<body>
+
+	<h2>User registered successfully!</h2>
+
+	<hr>
+	
+	<a th:href="@{/login}">Login with new user</a>
+	
+</body>
+
+</html>

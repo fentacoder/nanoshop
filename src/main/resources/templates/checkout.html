@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+select {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-75">
+        <div class="container">
+            <form method="post"  action="/pay">
+                <div class="col-50">
+                    <h3>Payment</h3>
+                    <label>Accepted Cards</label>
+                    <div class="icon-container">
+                        <i class="fa fa-cc-visa" style="color:navy;"></i>
+                        <i class="fa fa-cc-amex" style="color:blue;"></i>
+                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                        <i class="fa fa-cc-discover" style="color:orange;"></i>
+                    </div>
+                    <label for="price">Total</label>
+                    <input class="addprice" type="text" id="price" name="price">
+                    <label for="currency">Currency</label>
+                    <select id="currency" name="currency">
+						<option value="AUD" >Australia Dollars</option>
+						<option value="BRL">Brazilian real</option>	
+						<option value="CAD">Canada Dollars</option>
+						<option value="CZK">Czech koruna</option>
+						<option value="DKK">Danish krone</option>
+						<option value="EUR">Euro</option>
+						<option value="HKD">Hong Kong Dollars</option>
+						<option value="HUF">Hungary Forint</option>
+						<option value="INR">Indian rupee</option>
+						<option value="ILS">Israel New Shekels</option>
+						<option value="JPY">Japan Yen</option>
+						<option value="MYR">Malaysia Ringgit</option>
+						<option value="MXN">Mexico Pesos</option>
+						<option value="TWD">Taiwan Dollars</option>
+						<option value="NZD">New Zealand Dollars</option>
+						<option value="NOK">Norway Kroner</option>
+						<option value="PHP">Philippines Pesos</option>
+						<option value="PLN">Polish zloty</option>
+						<option value="GBP">United Kingdom Pounds</option>
+						<option value="RUB">Russia Rubles</option>
+						<option value="SGD">Singapore Dollars</option>
+						<option value="SEK">Sweden Krona</option>
+						<option value="CHF">Switzerland Francs</option>
+						<option value="THB">Thailand Baht</option>
+						<option value="USD" selected="selected">United States Dollars</option>	
+					</select>
+                    <label for="method">Payment Method</label>
+                    <input type="text" id="method" name="method" placeholder="PAYPAL" value="paypal" readonly>
+                    <label for="intent">Intent</label>
+                     <select id="intent" name="intent">
+						<option value="sale" selected="selected">Sale</option>
+						<option value="authorize">Authorize</option>	
+						<option value="order">Order</option>
+                    <label for="description">Payment Description</label>
+                    <input type="text" id="description" name="description" placeholder="Payment Description">
+                </div>
+
+                <input type="submit" value="Continue to checkout" class="btn">
+            </form>
+        </div>
+    </div>
+    <div class="col-25">
+        <div class="container cart-primary">
+            
+        </div>
+    </div>
+</div>
+<script language="JavaScript" type="text/javascript" src="js/payment.js"></script>
+</body>
+</html>

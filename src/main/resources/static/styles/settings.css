@@ -1,0 +1,181 @@
+
+html{overflow-y:scroll;} /* Forces a scrollbar when the viewport is larger than the websites content - CSS3 */
+
+body{margin:0; padding:0; font-size:16px; font-family:Georgia, "Times New Roman", Times, serif; color:#919191; background-color:#232323;}
+
+.clear:after{content:"."; display:block; height:0; clear:both; visibility:hidden; line-height:0;}
+.clear{display:block; clear:both;}
+html[xmlns] .clear{display:block;}
+* html .clear{height:1%;}
+
+a{outline:none; text-decoration:none;}
+
+code{font-weight:normal; font-style:normal; font-family:Georgia, "Times New Roman", Times, serif;}
+
+.fl_left{float:left;}
+.fl_right{float:right;}
+
+img{margin:0; padding:0; border:none; line-height:normal; vertical-align:middle;}
+.imgholder, .imgl, .imgr{padding:4px; border:1px solid #D6D6D6; text-align:center;}
+.imgl{float:left; margin:0 15px 15px 0; clear:left;}
+.imgr{float:right; margin:0 0 15px 15px; clear:right;}
+
+/*----------------------------------------------HTML 5 Overrides-------------------------------------*/
+
+address, article, aside, figcaption, figure, footer, header, nav, section{display:block; margin:0; padding:0;}
+
+q{display:block; padding:0 10px 8px 10px; color:#979797; background-color:#ECECEC; font-style:italic; line-height:normal;}
+q:before{content:'“ '; font-size:26px;}
+q:after{content:' „'; font-size:26px; line-height:0;}
+
+/* ----------------------------------------------Wrapper-------------------------------------*/
+
+div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
+
+.row1, .row1 a{color:#f4f6ff; background-color:#3f96cd;}
+.row2{ background-color:#f7f7ee;}
+.row2 a{}
+.row3{color:#989898; background-color:#3f96cd;}
+.row3 a{color:#f7f7ee; background-color:#3f96cd;}
+.row4, .row4 a{color:#919191; background-color:#FFFFFF;}
+
+/*----------------------------------------------Generalise-------------------------------------*/
+
+#header, #footer, #copyright{display:block; width:960px; margin:0 auto;}
+#container{display:block; width:1070px; margin:0 auto; border: 1px solid white; border-radius:10px; background-color:#f7f7ee;}
+
+nav ul{margin:0; padding:0; list-style:none;}
+
+h1, h2, h3, h4, h5, h6{margin:0; padding:0; font-size:32px; font-weight:normal; font-style:italic; line-height:normal;}
+
+address{font-style:normal;}
+
+blockquote, q{display:block; padding:8px 10px; color:#979797; background-color:#ECECEC; font-style:italic; line-height:normal;}
+blockquote:before, q:before{content:'“ '; font-size:26px;}
+blockquote:after, q:after{content:' „'; font-size:26px; line-height:0;}
+
+form, fieldset, legend{margin:0; padding:0; border:none;}
+legend{display:none;}
+input, textarea, select{font-size:12px; font-family:Georgia,"Times New Roman",Times,serif;}
+
+.one_quarter, .two_quarter, .three_quarter, .four_quarter{display:block; float:left; margin:0 10px 0 10px;}
+.one_quarter{width:225px;}
+.one_third, .two_third, .three_third{ width:250px; display:block; float:left;margin:0 50px 15px 50px; }
+
+
+/*----------------------------------------------Header-------------------------------------*/
+
+#header{padding:20px 0;}
+
+#header #hgroup{float:left; margin:0 0 20px 0;}
+#header #hgroup h1, #header #hgroup h2{font-weight:normal; font-style:normal; text-transform:none;}
+#header #hgroup h1{font-size:36px;}
+#header #hgroup h1 a{text-decoration:none; color:#f4f6ff;}
+
+#header #hgroup h2{font-size:13px;}
+
+#header nav{display:block; float:right; margin:10px 0 0 0; padding:20px 0; color:#f4f6ff; background-color:#3f96cd;}
+#header nav ul{padding:0 20px;}
+#header nav li{display:inline; margin-right:25px; text-transform:uppercase;}
+#header nav li.last{margin-right:0;}
+#header nav li a{color:#f4f6ff; background-color:#3f96cd; text-decoration:none;}
+#header nav li a:hover{ color:#FF9900; background-color:#3f96cd; text-decoration:none;}
+
+/*----------------------------------------------Content Area-------------------------------------*/
+
+
+/*----------------------------------------------Footer-------------------------------------*/
+
+#footer{padding:30px 0; font-size:12px; line-height:1.4em;}
+
+#footer section h2.title{margin:0 0 25px 0; padding:0; color:#FFFFFF; background-color:#3f96cd; font-size:12px; font-weight:bold; text-transform:uppercase;}
+
+#footer section nav li{margin:0 0 10px 0; padding:0 0 5px 0; border-bottom:1px solid #fff; font-weight:bold; color:#f7f7ee;}
+#footer section nav li.last{margin:0;}
+
+/*----------------------------------------------Copyright-------------------------------------*/
+
+#copyright{padding:20px 0;}
+#copyright p{margin:0; padding: 0;}
+
+/*----------------------------------------------------*/
+
+
+
+
+
+.get-in-touch {
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+
+}
+.get-in-touch .title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2.2em;
+  line-height: 38px;
+  padding-bottom: 48px;
+     color: #5543ca;
+    background: #5543ca;
+    background-image: linear-gradient(#243b55,#3f96cd);
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight:normal;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 32px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 66px;
+  border-width: 0 0 2px 0;
+  border-color: #5543ca;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  background-color:#f7f7ee;
+}
+.contact-form .input-text:focus {
+  outline: none;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+  -webkit-transform: translateY(-24px);
+          transform: translateY(-24px);
+}
+.contact-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 50px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #5543ca;
+  cursor: text;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, 
+  -webkit-transform .2s ease-in-out;
+}
+.contact-form .submit-btn {
+  display: inline-block;
+  background-color: #000;
+  background-image: linear-gradient(#243b55,#3f96cd);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  width:200px;
+  cursor: pointer;
+}
+#terror{
+	font-size:10px;
+	color:red;
+}

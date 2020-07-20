@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>E Commerce</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->	
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <div id="hgroup">
+      <h1><a href="#">Nano Shop</a></h1>
+      <h2>Online Commerce Website</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a th:href="@{/userInfo}">Profile</a></li>
+        <li ><a href="#contact">Contact Us</a></li>
+        <li class="last"><a th:href="@{/logout}">Log out</a></li>
+        
+		<a type="button" class="btn" data-toggle="modal" data-target="#cart"><img class="handi" src="img/cart.png"/> (<span class="total-count"></span>)</a>
+		<a class="clear-cart btn"><img class="handi" src="img/clear.png"/></a>
+      </ul>
+    </nav>
+  </header>
+</div>
+<!-- content -->
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- main content -->
+	  <div id="homepage">
+      <!-- Services -->
+	 <section id="services" class="clear">
+		<article class="one_third" th:each="item : ${items}">
+			<div class="row">
+				<div class="el-wrapper">
+					<div class="box-up">
+						<img class="img" th:src="${item.imgUrl}" alt="item">
+						<div class="img-info">
+							<div class="info-inner">
+								<span class="p-name" th:text="${item.name}"></span>
+								<span class="p-company"></span>
+							</div>
+						</div>
+					</div>
+					<div class="box-down">
+						<div class="h-bg">
+							<div class="h-bg-inner"></div>
+						</div>
+						<a class="cart" href="#">
+						<span class="price" th:text="'$'+${item.price}"></span>
+						<span class="add-to-cart1">
+							<span class="txt add-to-cart btn" th:attr="data-id=${item.id},data-name=${item.name},data-price=${item.price}">Add in cart</span>
+						</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+			  <!-- / Services -->
+      <!-- ########################################################################################## -->
+      <!-- ########################################################################################## -->
+      <!-- ########################################################################################## -->
+      <!-- ########################################################################################## -->
+		</div>
+    <!-- / content body -->
+
+  </div>
+ <!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+          
+        </table>
+        <div>Total price: $<span class="total-cart"></span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" th:onclick="|window.location.href='/checkout'|" class="btn btn-primary">Order now</button>
+      </div>
+    </div>
+  </div>
+</div> 
+</div>
+<!-- Footer -->
+<div class="wrapper row3">
+  <div id="footer" class="clear">
+    <!-- / Section -->
+	<section id="contact" class="one_quarter lastbox">
+      <h2 class="title">CONTACT US</h2>
+      <nav>
+        <ul>
+          <li><a href="#">E-mail:</a></li>
+          <li><a href="#">Phone:</a></li>
+        </ul>
+      </nav>
+    </section>
+  </div>
+</div>
+<!-- Copyright -->
+<script language="JavaScript" type="text/javascript" src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+      <title>Registration</title>
+      <link rel="stylesheet" href="/styles/login.css" type="text/css">
+	</head>
+	<body>
+		<div class="login-box">
+		  <h2>Register</h2>
+		  <form id="myForm" name='f' th:action="@{/register/processRegistrationForm}" 
+						  	   th:object="${crmUser}" method="POST" >
+			<div class="user-box">
+			  <input id="tusername" type="text" th:field="*{userName}" required="">
+			  <label>Username(*)</label>
+			</div>
+			<div class="user-box">
+			  <input id="temail" type="text" th:field="*{email}" required="">
+			  <label>Email(*)</label>
+			</div>
+			<div class="user-box">
+			  <input id="tpassword" type="password" th:field="*{encrytedPassword}" required="">
+			  <label>Password(*)</label>
+			<span id="terror" class="error" th:text="${registrationError}"></span>
+			</div><a href="#" id="sub" onclick="myfunc()">
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			  Submit
+			</a>
+			<a id="reg" th:href="@{/login}">Log into your account</a>
+		  </form>
+		</div>
+		<script>
+	//	
+	
+	function myfunc(){
+		if(document.getElementById("tusername").value==""){
+			document.getElementById("terror").innerHTML="User Name field is empty."
+			return;
+		}
+		if(document.getElementById("temail").value==""){
+			document.getElementById("terror").innerHTML="Email field is empty."
+			return;
+		}
+		if(document.getElementById("tpassword").value==""){
+			document.getElementById("terror").innerHTML="Password field is empty."
+			return;
+		}
+		
+		else{
+			document.getElementById('myForm').submit();
+		}
+		}
+</script>
+	</body>
+</html>

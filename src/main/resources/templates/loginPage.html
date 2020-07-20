@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+      <title>Login</title>
+      <link rel="stylesheet" href="styles/login.css" type="text/css">
+	</head>
+	<body>
+		<div class="login-box">
+		  <h2>Login</h2>
+		  <form id="myForm" name='f' th:action="@{/j_spring_security_check}" method='POST'>
+			<div class="user-box">
+			  <input type='text' name='username' value='' required="">
+			  <label>Username</label>
+			</div>
+			<div class="user-box">
+			  <input type='password' name='password' required="">
+			  <label>Password</label>
+			  <div class="error" th:if="${param.error}"
+     th:with="errorMsg=${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
+    <div class="error" th:switch="${errorMsg}"> 
+  <span th:case="'Cannot pass null or empty values to constructor'">Please fill the user name field.</span>
+  <span th:case="'Bad credentials'">Please enter valid credentials.</span>
+  <span th:case="*">Please enter valid credentials.</span>
+	</div>
+</div>
+			</div><a href="#" onclick="document.getElementById('myForm').submit();">
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			  Submit
+			</a>
+			<a id="reg" th:href="@{/register/showRegistrationForm}">Register with new user</a>
+		  </form>
+		</div>
+	</body>
+</html>

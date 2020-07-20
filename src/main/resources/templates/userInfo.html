@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Settings</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles/settings.css" type="text/css">
+<style>
+.delete{
+margin:50px 50px;
+font-size:28px;
+}
+</style>
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <div id="hgroup">
+      <h1><a href="#">WooCommerce</a></h1>
+      <h2>Online Commerce Website</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/userInfo}">Profile</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li class="last"><a th:href="@{/logout}">Log out</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+<!-- content -->
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- main content -->
+    <a th:href="@{/userInfo/delete(usid=${setuser.userId})}"
+					   class="delete"
+					   onclick="if (!(confirm('Are you sure you want to delete this account?'))) return false">
+						Delete account
+	</a>
+		 <section class="get-in-touch">
+   <h1 class="title">Account Settings</h1>
+   <form class="contact-form row" th:action="@{/userInfo/save}" 
+						  	   th:object="${setuser}" method="POST" >
+      <div class="form-field">
+         <input id="name" class="input-text js-input" type="text" required th:attr="value = ${setuser.userName}" th:field="*{userName}" readonly>
+         <label class="label" for="name">User name</label>
+      </div>
+      <div class="form-field col-lg-6 ">
+         <input id="email" class="input-text js-input" type="email" th:attr="value = ${setuser.email}" th:field="*{email}" required>
+         <label class="label" for="email">E-mail</label>
+      </div>
+      
+         <input type="hidden" th:field="*{userId}"  th:attr="value =${setuser.userId}"/>
+
+      <div class="form-field col-lg-12">
+         <input id="message" class="input-text js-input" type="text" th:field="*{encrytedPassword}" required>
+         <label class="label" for="message">New Password</label>
+      </div>
+      <div class="form-field col-lg-12">
+         <input class="submit-btn" type="submit" value="Submit">
+      </div>
+   </form>
+</section>
+  </div>
+ <!-- Modal -->
+</div>
+<!-- Footer -->
+<div class="wrapper row3">
+  <div id="footer" class="clear">
+    <!-- / Section -->
+	<section id="contact" class="one_quarter lastbox">
+      <h2 class="title">CONTACT US</h2>
+      <nav>
+        <ul>
+          <li><a href="#">E-mail:</a></li>
+          <li><a href="#">Phone:</a></li>
+        </ul>
+      </nav>
+    </section>
+  </div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>
